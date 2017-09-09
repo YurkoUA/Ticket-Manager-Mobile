@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketManagerMobile", "TicketManagerMobile\TicketManagerMobile.csproj", "{3786711F-F5DD-452A-B84B-6B04E23CF8FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketApi", "TicketApi\TicketApi.csproj", "{B2C350A6-27AF-45EE-B237-953D3962EA8F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3786711F-F5DD-452A-B84B-6B04E23CF8FE}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{3786711F-F5DD-452A-B84B-6B04E23CF8FE}.Debug|ARM.ActiveCfg = Debug|ARM
+		{3786711F-F5DD-452A-B84B-6B04E23CF8FE}.Debug|ARM.Build.0 = Debug|ARM
+		{3786711F-F5DD-452A-B84B-6B04E23CF8FE}.Debug|ARM.Deploy.0 = Debug|ARM
+		{3786711F-F5DD-452A-B84B-6B04E23CF8FE}.Debug|x64.ActiveCfg = Debug|x64
+		{3786711F-F5DD-452A-B84B-6B04E23CF8FE}.Debug|x64.Build.0 = Debug|x64
+		{3786711F-F5DD-452A-B84B-6B04E23CF8FE}.Debug|x64.Deploy.0 = Debug|x64
+		{3786711F-F5DD-452A-B84B-6B04E23CF8FE}.Debug|x86.ActiveCfg = Debug|x86
+		{3786711F-F5DD-452A-B84B-6B04E23CF8FE}.Debug|x86.Build.0 = Debug|x86
+		{3786711F-F5DD-452A-B84B-6B04E23CF8FE}.Debug|x86.Deploy.0 = Debug|x86
+		{3786711F-F5DD-452A-B84B-6B04E23CF8FE}.Release|Any CPU.ActiveCfg = Release|x86
+		{3786711F-F5DD-452A-B84B-6B04E23CF8FE}.Release|ARM.ActiveCfg = Release|ARM
+		{3786711F-F5DD-452A-B84B-6B04E23CF8FE}.Release|ARM.Build.0 = Release|ARM
+		{3786711F-F5DD-452A-B84B-6B04E23CF8FE}.Release|ARM.Deploy.0 = Release|ARM
+		{3786711F-F5DD-452A-B84B-6B04E23CF8FE}.Release|x64.ActiveCfg = Release|x64
+		{3786711F-F5DD-452A-B84B-6B04E23CF8FE}.Release|x64.Build.0 = Release|x64
+		{3786711F-F5DD-452A-B84B-6B04E23CF8FE}.Release|x64.Deploy.0 = Release|x64
+		{3786711F-F5DD-452A-B84B-6B04E23CF8FE}.Release|x86.ActiveCfg = Release|x86
+		{3786711F-F5DD-452A-B84B-6B04E23CF8FE}.Release|x86.Build.0 = Release|x86
+		{3786711F-F5DD-452A-B84B-6B04E23CF8FE}.Release|x86.Deploy.0 = Release|x86
+		{B2C350A6-27AF-45EE-B237-953D3962EA8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2C350A6-27AF-45EE-B237-953D3962EA8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2C350A6-27AF-45EE-B237-953D3962EA8F}.Debug|ARM.ActiveCfg = Debug|ARM
+		{B2C350A6-27AF-45EE-B237-953D3962EA8F}.Debug|ARM.Build.0 = Debug|ARM
+		{B2C350A6-27AF-45EE-B237-953D3962EA8F}.Debug|x64.ActiveCfg = Debug|x64
+		{B2C350A6-27AF-45EE-B237-953D3962EA8F}.Debug|x64.Build.0 = Debug|x64
+		{B2C350A6-27AF-45EE-B237-953D3962EA8F}.Debug|x86.ActiveCfg = Debug|x86
+		{B2C350A6-27AF-45EE-B237-953D3962EA8F}.Debug|x86.Build.0 = Debug|x86
+		{B2C350A6-27AF-45EE-B237-953D3962EA8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2C350A6-27AF-45EE-B237-953D3962EA8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2C350A6-27AF-45EE-B237-953D3962EA8F}.Release|ARM.ActiveCfg = Release|ARM
+		{B2C350A6-27AF-45EE-B237-953D3962EA8F}.Release|ARM.Build.0 = Release|ARM
+		{B2C350A6-27AF-45EE-B237-953D3962EA8F}.Release|x64.ActiveCfg = Release|x64
+		{B2C350A6-27AF-45EE-B237-953D3962EA8F}.Release|x64.Build.0 = Release|x64
+		{B2C350A6-27AF-45EE-B237-953D3962EA8F}.Release|x86.ActiveCfg = Release|x86
+		{B2C350A6-27AF-45EE-B237-953D3962EA8F}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC1E8C5D-03BB-4BEF-8117-1179D35760AF}
+	EndGlobalSection
+EndGlobal
