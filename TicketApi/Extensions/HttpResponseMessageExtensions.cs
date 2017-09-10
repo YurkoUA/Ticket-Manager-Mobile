@@ -10,12 +10,18 @@ namespace TicketApi.Extensions
         {
             if (!response.IsSuccessStatusCode)
             {
-                if (response.StatusCode == HttpStatusCode.BadRequest)
-                    throw new BadRequestException(response);
-                else if (response.StatusCode == HttpStatusCode.NotFound)
-                    throw new NotFoundException(response);
-                else
-                    throw new HttpResponseException(response);
+                switch (response.StatusCode)
+                {
+                    case HttpStatusCode.BadRequest:
+                        throw new BadRequestException(response);
+                    case HttpStatusCode.NotFound:
+                        throw new NotFoundException(response);
+                    case HttpStatusCode.Unauthorized:
+                        throw new UnauthorizedException(response);
+
+                    default:
+                        throw new HttpResponseException(response);
+                }
             }
         }
     }
