@@ -8,6 +8,84 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="Домашня сторінка" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <RelativePanel>
+            <Button x:Name="HamburgerButton"
+                    RelativePanel.AlignLeftWithPanel="True"
+                    FontFamily="Segoe MDL2 Assets" FontSize="30"
+                    Content="&#xE700;" 
+                    Click="{x:Bind ViewModel.MenuOpenedChanged}"/>
+            
+            <TextBlock RelativePanel.RightOf="HamburgerButton"
+                       FontSize="28" FontWeight="Bold"
+                       Margin="30,5,0,0" />
+        </RelativePanel>
+
+        <SplitView Grid.Row="1" OpenPaneLength="300"
+                   DisplayMode="CompactOverlay" CompactPaneLength="50"
+                   IsPaneOpen="{x:Bind ViewModel.IsMenuOpened, Mode=TwoWay}">
+            <SplitView.Pane>
+                <ListBox>
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="30" FontFamily="Segoe MDL2 Assets" Text="&#xE10F;" />
+                            <TextBlock FontSize="20" Text="Домашня сторінка" Margin="10,0,0,0" />
+                        </StackPanel>
+                    </ListBoxItem>
+
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="30" FontFamily="Segoe MDL2 Assets" Text="&#xE8A5;" />
+                            <TextBlock FontSize="20" Text="Квитки" Margin="10,0,0,0" />
+                        </StackPanel>
+                    </ListBoxItem>
+
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="30" FontFamily="Segoe MDL2 Assets" Text="&#xE8B7;" />
+                            <TextBlock FontSize="20" Text="Пачки" Margin="10,0,0,0" />
+                        </StackPanel>
+                    </ListBoxItem>
+
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="30" FontFamily="Segoe MDL2 Assets" Text="&#xE82D;" />
+                            <TextBlock FontSize="20" Text="Серії" Margin="10,0,0,0" />
+                        </StackPanel>
+                    </ListBoxItem>
+
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="30" FontFamily="Segoe MDL2 Assets" Text="&#xE2B1;" />
+                            <TextBlock FontSize="20" Text="Кольори" Margin="10,0,0,0" />
+                        </StackPanel>
+                    </ListBoxItem>
+
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="30" FontFamily="Segoe MDL2 Assets" Text="&#xEB05;" />
+                            <TextBlock FontSize="20" Text="Статистика" Margin="10,0,0,0" />
+                        </StackPanel>
+                    </ListBoxItem>
+
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="30" FontFamily="Segoe MDL2 Assets" Text="&#xE8A1;" />
+                            <TextBlock FontSize="20" Text="Звіти" Margin="10,0,0,0" />
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+            </SplitView.Pane>
+
+            <SplitView.Content>
+                <Frame Name="myFrame">
+                    <TextBlock Text="Домашня сторінка" />
+                </Frame>
+            </SplitView.Content>
+        </SplitView>
     </Grid>
 </Page>

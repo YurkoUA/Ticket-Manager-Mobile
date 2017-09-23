@@ -12,19 +12,28 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+using TicketApi.Interfaces;
+using TicketManagerMobile.Util;
+using TicketManagerMobile.ViewModels.Home;
 
 namespace TicketManagerMobile.Views.Home
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class HomePage : Page
     {
+        public HomeViewModel ViewModel { get; set; }
+
         public HomePage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
+            ViewModel = new HomeViewModel();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var navigationService = AutofacConfig.Resolve<INavigationService>();
+
+            navigationService.ClearHistory();
+            navigationService.ConfigureFrame(myFrame);
         }
     }
 }

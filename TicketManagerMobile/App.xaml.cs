@@ -1,6 +1,7 @@
 ﻿using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -15,6 +16,8 @@ namespace TicketManagerMobile
     /// </summary>
     sealed partial class App : Application
     {
+        private INavigationService _navigationService;
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -23,6 +26,7 @@ namespace TicketManagerMobile
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            _navigationService = AutofacConfig.Resolve<INavigationService>();
         }
 
         /// <summary>
@@ -32,7 +36,7 @@ namespace TicketManagerMobile
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-            Frame rootFrame = Window.Current.Content as Frame;
+            Frame rootFrame = _navigationService.Frame;
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
@@ -40,6 +44,7 @@ namespace TicketManagerMobile
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
+                _navigationService.ConfigureFrame(rootFrame);
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
@@ -70,6 +75,31 @@ namespace TicketManagerMobile
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
+
+                SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested;
+
+                rootFrame.Navigated += (s, args) =>
+                {
+                    if (rootFrame.CanGoBack)
+                    {
+                        SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+                    }
+                    else
+                    {
+                        SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+                    }
+                };
+            }
+        }
+
+        private void App_BackRequested(object sender, BackRequestedEventArgs e)
+        {
+            var frame = _navigationService.Frame;
+
+            if (frame.CanGoBack)
+            {
+                frame.GoBack();
+                e.Handled = true;
             }
         }
 

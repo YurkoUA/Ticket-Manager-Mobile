@@ -10,7 +10,9 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <ScrollViewer>
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBlock Text="Авторизація..." />
+                <TextBlock Text="Авторизація..."
+                           Margin="0,0,0,10"/>
+                
                 <ProgressRing Height="100" Width="100"
                               IsActive="True"/>
             </StackPanel>
