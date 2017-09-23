@@ -9,9 +9,9 @@ namespace TicketApi.Interfaces
         bool IsAuthenticated { get; }
         AccessToken AccessToken { get; }
         User User { get; }
-        PasswordCredential Credential { get; }
+        PasswordCredential Credential { get; set; }
 
-        Task AuthorizaAsync(string userName, string password, bool isRemember);
+        Task AuthorizeAsync(string userName, string password, bool isRemember);
         void Logout();
     }
 }

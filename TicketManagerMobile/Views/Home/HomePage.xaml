@@ -1,13 +1,13 @@
 ﻿<Page
-    x:Class="TicketManagerMobile.MainPage"
+    x:Class="TicketManagerMobile.Views.Home.HomePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:TicketManagerMobile"
+    xmlns:local="using:TicketManagerMobile.Views.Home"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <TextBlock Text="Домашня сторінка" />
     </Grid>
 </Page>

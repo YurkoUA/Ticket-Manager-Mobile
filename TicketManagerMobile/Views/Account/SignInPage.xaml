@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="TicketManagerMobile.Views.Account.SignInPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TicketManagerMobile.Views.Account"
+    xmlns:converters="using:TicketManagerMobile.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ScrollViewer>
+            <StackPanel Margin="10">
+                <ProgressBar IsIndeterminate="True"
+                             Visibility="{x:Bind ViewModel.IsLoading, Mode=OneWay}"/>
+
+                <TextBox Text="{x:Bind ViewModel.UserName, Mode=TwoWay}" 
+                         PlaceholderText="Логін або Email"
+                         Margin="0,10,0,10"
+                         IsEnabled="{x:Bind ViewModel.IsLoading, Mode=OneWay, Converter={StaticResource InverseBoolConverter}}"/>
+
+                <PasswordBox Password="{x:Bind ViewModel.Password, Mode=TwoWay}" 
+                            PlaceholderText="Пароль"
+                            Margin="0,10,0,10"
+                            IsEnabled="{x:Bind ViewModel.IsLoading, Mode=OneWay, Converter={StaticResource InverseBoolConverter}}"/>
+
+                <CheckBox IsChecked="{x:Bind ViewModel.IsRemember, Mode=TwoWay}" 
+                          Content="Запам'ятати"
+                          IsThreeState="False"
+                          Margin="0,10,0,10"
+                          IsEnabled="{x:Bind ViewModel.IsLoading, Mode=OneWay, Converter={StaticResource InverseBoolConverter}}"/>
+
+                <Button Content="Увійти" HorizontalAlignment="Stretch"
+                        IsEnabled="{x:Bind ViewModel.IsLoading, Mode=OneWay, Converter={StaticResource InverseBoolConverter}}"
+                        Click="{x:Bind ViewModel.Authorize}"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

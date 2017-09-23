@@ -19,7 +19,6 @@ namespace TicketApi.Services
 
         private AccessToken _token;
         private User _user;
-        private PasswordCredential _credential;
 
         public AuthenticationService(IHttpService httpService, ICredentialService credentialService, IUserService userService)
         {
@@ -34,9 +33,9 @@ namespace TicketApi.Services
 
         public User User => _user;
 
-        public PasswordCredential Credential => _credential;
+        public PasswordCredential Credential { get; set; }
 
-        public async Task AuthorizaAsync(string userName, string password, bool isRemember)
+        public async Task AuthorizeAsync(string userName, string password, bool isRemember)
         {
             var request = new HttpRequestMessage
             {
@@ -54,14 +53,18 @@ namespace TicketApi.Services
             if (_token == null)
                 throw new HttpResponseException(response);
 
+            _httpService.ConfigureAuthorization(_token);
             _user = await _userService.GetUserAsync();
 
             if (_user == null)
+            {
+                _httpService.ResetAuthorization();
                 throw new HttpResponseException(response);
+            }
 
             if (isRemember)
             {
-                _credential = _credentialService.Save(userName, password);
+                Credential = _credentialService.Save(userName, password);
             }
         }
 
@@ -75,8 +78,8 @@ namespace TicketApi.Services
 
             _httpService.ResetAuthorization();
 
-            if (_credential != null)
-                _credentialService.Remove(_credential);
+            if (Credential != null)
+                _credentialService.Remove(Credential);
         }
     }
 }
