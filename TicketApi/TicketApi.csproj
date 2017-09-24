@@ -116,9 +116,11 @@
     <Compile Include="Extensions\HttpResponseMessageExtensions.cs" />
     <Compile Include="Extensions\ObservableCollectionExtensions.cs" />
     <Compile Include="Interfaces\IAuthenticationService.cs" />
+    <Compile Include="Interfaces\IColorService.cs" />
     <Compile Include="Interfaces\ICredentialService.cs" />
     <Compile Include="Interfaces\IHttpService.cs" />
     <Compile Include="Interfaces\INavigationService.cs" />
+    <Compile Include="Interfaces\ISerialService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Models\AccessToken.cs" />
     <Compile Include="Models\Color.cs" />
@@ -129,9 +131,11 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\ColorService.cs" />
     <Compile Include="Services\CredentialService.cs" />
     <Compile Include="Services\HttpService.cs" />
     <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Services\SerialService.cs" />
     <Compile Include="Services\UserService.cs" />
     <EmbeddedResource Include="Properties\TicketApi.rd.xml" />
   </ItemGroup>

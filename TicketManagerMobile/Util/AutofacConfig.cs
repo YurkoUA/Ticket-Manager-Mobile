@@ -51,6 +51,14 @@ namespace TicketManagerMobile.Util
             builder.RegisterType<NavigationService>()
                 .As<INavigationService>()
                 .SingleInstance();
+
+            builder.RegisterType<ColorService>()
+                .As<IColorService>()
+                .SingleInstance();
+
+            builder.RegisterType<SerialService>()
+                .As<ISerialService>()
+                .SingleInstance();
         }
 
         public static T Resolve<T>()
