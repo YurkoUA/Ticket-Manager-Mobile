@@ -51,7 +51,7 @@
                         </StackPanel>
                     </ListBoxItem>
 
-                    <ListBoxItem>
+                    <ListBoxItem Tapped="{x:Bind ViewModel.OpenSeriesPage}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontSize="30" FontFamily="Segoe MDL2 Assets" Text="&#xE82D;" />
                             <TextBlock FontSize="20" Text="Серії" Margin="10,0,0,0" />

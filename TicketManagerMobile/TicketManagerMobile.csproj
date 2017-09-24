@@ -105,6 +105,8 @@
     <Compile Include="ViewModels\Color\ColorDetailsViewModel.cs" />
     <Compile Include="ViewModels\Color\ColorsViewModel.cs" />
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
+    <Compile Include="ViewModels\Serial\SerialDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Serial\SeriesViewModel.cs" />
     <Compile Include="Views\Account\SignInPage.xaml.cs">
       <DependentUpon>SignInPage.xaml</DependentUpon>
     </Compile>
@@ -119,6 +121,12 @@
     </Compile>
     <Compile Include="Views\Home\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Serial\SerialDetailsPage.xaml.cs">
+      <DependentUpon>SerialDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Serial\SeriesPage.xaml.cs">
+      <DependentUpon>SeriesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Wrappers\MessageBox.cs" />
   </ItemGroup>
@@ -160,6 +168,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Home\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Serial\SerialDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Serial\SeriesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

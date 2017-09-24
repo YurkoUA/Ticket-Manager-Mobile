@@ -7,5 +7,7 @@
         public string Note { get; set; }
         public int PackagesCount { get; set; }
         public int TicketsCount { get; set; }
+
+        public bool NoteIsNotEmpty => !string.IsNullOrEmpty(Note);
     }
 }
