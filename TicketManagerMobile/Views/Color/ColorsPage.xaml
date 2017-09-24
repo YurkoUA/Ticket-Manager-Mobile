@@ -1,0 +1,64 @@
+﻿<Page
+    x:Class="TicketManagerMobile.Views.Color.ColorsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TicketManagerMobile.Views.Color"
+    xmlns:models="using:TicketApi.Models"
+    xmlns:converters="using:TicketManagerMobile.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style TargetType="ListBoxItem">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ScrollViewer>
+            <StackPanel>
+                <ListBox ItemsSource="{x:Bind ViewModel.Colors, Mode=OneWay}"
+                         SelectedItem="{x:Bind ViewModel.SelectedColor, Mode=TwoWay}"
+                         AllowFocusOnInteraction="True"
+                         Tapped="{x:Bind ViewModel.OpenColorPage}">
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate x:DataType="models:Color">
+                            <RelativePanel>
+                                <TextBlock x:Name="colorName"
+                                           Text="{x:Bind Name}"
+                                           FontWeight="Bold"
+                                           TextWrapping="Wrap"/>
+
+                                <TextBlock x:Name="packagesText"
+                                           Text="Пачок:"
+                                           FontSize="13"
+                                           Margin="0,0,5,0"
+                                           RelativePanel.Below="colorName"/>
+
+                                <TextBlock x:Name="packagesCount"
+                                           Text="{x:Bind PackagesCount}"
+                                           FontSize="13"
+                                           RelativePanel.Below="colorName"
+                                           RelativePanel.RightOf="packagesText"/>
+
+                                <TextBlock x:Name="ticketsText"
+                                           Text="Квитків:"
+                                           FontSize="13"
+                                           Margin="0,0,5,0"
+                                           RelativePanel.Below="packagesText" />
+
+                                <TextBlock x:Name="ticketsCount"
+                                           Text="{x:Bind TicketsCount}"
+                                           FontSize="13"
+                                           RelativePanel.Below="packagesText"
+                                           RelativePanel.RightOf="ticketsText"/>
+                            </RelativePanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

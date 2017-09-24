@@ -25,7 +25,7 @@ namespace TicketManagerMobile.Views.Home
         public HomePage()
         {
             InitializeComponent();
-            ViewModel = new HomeViewModel();
+            ViewModel = new HomeViewModel(AutofacConfig.Resolve<INavigationService>());
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

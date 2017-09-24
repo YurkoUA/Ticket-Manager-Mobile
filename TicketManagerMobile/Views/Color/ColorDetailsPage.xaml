@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="TicketManagerMobile.Views.Color.ColorDetailsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TicketManagerMobile.Views.Color"
+    xmlns:converters="using:TicketManagerMobile.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
+            <converters:InverseBoolVisibilityConverter x:Key="InverseBoolVisibilityConverter"/>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Visibility="{x:Bind ViewModel.IsLoading, Mode=OneWay}"
+                    VerticalAlignment="Center" HorizontalAlignment="Center">
+            <ProgressRing IsActive="True" 
+                          Width="100" Height="100"/>
+            <TextBlock Text="Завантаження..." Margin="0,10,0,0"
+                       FontWeight="Bold"/>
+        </StackPanel>
+
+        <ScrollViewer Visibility="{x:Bind ViewModel.IsLoading, Mode=OneWay, Converter={StaticResource InverseBoolVisibilityConverter}}">
+            <StackPanel>
+                <TextBlock Text="{x:Bind ViewModel.PageTitle, Mode=OneWay}" 
+                           FontWeight="Bold" FontSize="20"
+                           HorizontalAlignment="Center"/>
+
+                <TextBlock Text="ID:" FontWeight="Bold" Margin="0,10,0,0" />
+                <TextBlock Text="{x:Bind ViewModel.SelectedColor.Id, Mode=OneWay}" />
+
+                <TextBlock Text="Назва:" FontWeight="Bold" Margin="0,10,0,0"/>
+                <TextBlock Text="{x:Bind ViewModel.SelectedColor.Name, Mode=OneWay}" />
+
+                <TextBlock Text="Пачок:" FontWeight="Bold" Margin="0,10,0,0"/>
+                <TextBlock Text="{x:Bind ViewModel.SelectedColor.PackagesCount, Mode=OneWay}"/>
+
+                <TextBlock Text="Квитків:" FontWeight="Bold" Margin="0,10,0,0"/>
+                <TextBlock Text="{x:Bind ViewModel.SelectedColor.TicketsCount, Mode=OneWay}"/>
+
+                <Button Content="Список пачок" 
+                        Margin="0,10,0,0"
+                        HorizontalAlignment="Stretch"
+                        Visibility="{x:Bind ViewModel.PackagesButtonVisibled, Mode=OneWay}"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

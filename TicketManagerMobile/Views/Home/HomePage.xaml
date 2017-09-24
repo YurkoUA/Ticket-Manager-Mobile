@@ -58,7 +58,7 @@
                         </StackPanel>
                     </ListBoxItem>
 
-                    <ListBoxItem>
+                    <ListBoxItem Tapped="{x:Bind ViewModel.OpenColorsPage}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontSize="30" FontFamily="Segoe MDL2 Assets" Text="&#xE2B1;" />
                             <TextBlock FontSize="20" Text="Кольори" Margin="10,0,0,0" />
