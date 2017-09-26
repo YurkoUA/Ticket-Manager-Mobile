@@ -1,0 +1,165 @@
+﻿<Page
+    x:Class="TicketManagerMobile.Views.Package.PackagesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TicketManagerMobile.Views.Package"
+    xmlns:models="using:TicketApi.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    
+    <Page.Resources>
+        <Style TargetType="ListBoxItem">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ScrollViewer>
+            <StackPanel>
+                <Pivot SelectedIndex="{x:Bind ViewModel.SelectedPivotIndex, Mode=TwoWay}">
+                    <PivotItem Header="Всі">
+                        <StackPanel>
+                            <ListBox ItemsSource="{x:Bind ViewModel.AllPackages.Packages, Mode=OneWay}"
+                                 SelectedItem="{x:Bind ViewModel.AllPackages.SelectedPackage, Mode=TwoWay}"
+                                 AllowFocusOnInteraction="True">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate x:DataType="models:Package">
+                                        <RelativePanel>
+                                            <TextBlock x:Name="packageName"
+                                           Text="{x:Bind Name}"
+                                           FontWeight="Bold"/>
+
+                                            <TextBlock x:Name="status"
+                                           Text="{x:Bind StatusString}"
+                                           FontSize="13"
+                                           RelativePanel.Below="packageName"/>
+
+                                            <TextBlock x:Name="ticketsText"
+                                           Text="Квитків:"
+                                           Margin="0,0,5,0"
+                                           FontSize="13"
+                                           RelativePanel.Below="status"/>
+
+                                            <TextBlock x:Name="ticketsCount"
+                                           Text="{x:Bind TicketsCount}"
+                                           FontSize="13"
+                                           RelativePanel.Below="status"
+                                           RelativePanel.RightOf="ticketsText"/>
+                                        </RelativePanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+
+                            <Button Content="Переглянути ще"
+                                    Margin="0,10,0,10"
+                                    HorizontalAlignment="Stretch"
+                                    IsEnabled="{x:Bind ViewModel.AllPackages.IsLoadMoreButtonEnabled, Mode=OneWay}"
+                                    Visibility="{x:Bind ViewModel.AllPackages.IsLoadMoreButtonVisibled, Mode=OneWay}"
+                                    Click="{x:Bind ViewModel.AllPackages.LoadMore, Mode=OneWay}"/>
+                        </StackPanel>
+                    </PivotItem>
+
+                    <PivotItem Header="Відкриті">
+                        <StackPanel>
+                            <ListBox ItemsSource="{x:Bind ViewModel.OpenedPackages.Packages, Mode=OneWay}"
+                                 SelectedItem="{x:Bind ViewModel.OpenedPackages.SelectedPackage, Mode=TwoWay}"
+                                 AllowFocusOnInteraction="True">
+
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate x:DataType="models:Package">
+                                        <RelativePanel>
+                                            <TextBlock x:Name="packageName"
+                                           Text="{x:Bind Name}"
+                                           FontWeight="Bold"/>
+
+                                            <TextBlock x:Name="status"
+                                           Text="{x:Bind StatusString}"
+                                           FontSize="13"
+                                           RelativePanel.Below="packageName"/>
+
+                                            <TextBlock x:Name="ticketsText"
+                                           Text="Квитків:"
+                                           Margin="0,0,5,0"
+                                           FontSize="13"
+                                           RelativePanel.Below="status"/>
+
+                                            <TextBlock x:Name="ticketsCount"
+                                           Text="{x:Bind TicketsCount}"
+                                           FontSize="13"
+                                           RelativePanel.Below="status"
+                                           RelativePanel.RightOf="ticketsText"/>
+                                        </RelativePanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+
+                            <Button Content="Переглянути ще"
+                                    Margin="0,10,0,10"
+                                    HorizontalAlignment="Stretch"
+                                    IsEnabled="{x:Bind ViewModel.OpenedPackages.IsLoadMoreButtonEnabled, Mode=OneWay}"
+                                    Visibility="{x:Bind ViewModel.OpenedPackages.IsLoadMoreButtonVisibled, Mode=OneWay}"
+                                    Click="{x:Bind ViewModel.OpenedPackages.LoadMore, Mode=OneWay}"/>
+                        </StackPanel>
+                    </PivotItem>
+
+                    <PivotItem Header="Спеціальні">
+                        <StackPanel>
+                            <ListBox ItemsSource="{x:Bind ViewModel.SpecialPackages.Packages, Mode=OneWay}"
+                                 SelectedItem="{x:Bind ViewModel.SpecialPackages.SelectedPackage, Mode=TwoWay}"
+                                 AllowFocusOnInteraction="True">
+
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate x:DataType="models:Package">
+                                        <RelativePanel>
+                                            <TextBlock x:Name="packageName"
+                                           Text="{x:Bind Name}"
+                                           FontWeight="Bold"/>
+
+                                            <TextBlock x:Name="status"
+                                           Text="{x:Bind StatusString}"
+                                           FontSize="13"
+                                           RelativePanel.Below="packageName"/>
+
+                                            <TextBlock x:Name="ticketsText"
+                                           Text="Квитків:"
+                                           Margin="0,0,5,0"
+                                           FontSize="13"
+                                           RelativePanel.Below="status"/>
+
+                                            <TextBlock x:Name="ticketsCount"
+                                           Text="{x:Bind TicketsCount}"
+                                           FontSize="13"
+                                           RelativePanel.Below="status"
+                                           RelativePanel.RightOf="ticketsText"/>
+                                        </RelativePanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+
+                            <Button Content="Переглянути ще"
+                                    Margin="0,10,0,10"
+                                    HorizontalAlignment="Stretch"
+                                    IsEnabled="{x:Bind ViewModel.SpecialPackages.IsLoadMoreButtonEnabled, Mode=OneWay}"
+                                    Visibility="{x:Bind ViewModel.SpecialPackages.IsLoadMoreButtonVisibled, Mode=OneWay}"
+                                    Click="{x:Bind ViewModel.SpecialPackages.LoadMore, Mode=OneWay}"/>
+                        </StackPanel>
+                    </PivotItem>
+                </Pivot>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Label="Створити пачку" Icon="Add"
+                          Visibility="{x:Bind ViewModel.IsAdmin}"/>
+            <AppBarButton Label="Створити спеціальну пачку" Icon="Add"
+                          Visibility="{x:Bind ViewModel.IsAdmin}"/>
+
+            <AppBarButton Label="Пошук" Icon="Find"/>
+            <AppBarButton Label="Оновити" Icon="Refresh"
+                          Click="{x:Bind ViewModel.Refresh}"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>

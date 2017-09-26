@@ -59,6 +59,10 @@ namespace TicketManagerMobile.Util
             builder.RegisterType<SerialService>()
                 .As<ISerialService>()
                 .SingleInstance();
+
+            builder.RegisterType<PackageService>()
+                .As<IPackageService>()
+                .SingleInstance();
         }
 
         public static T Resolve<T>()

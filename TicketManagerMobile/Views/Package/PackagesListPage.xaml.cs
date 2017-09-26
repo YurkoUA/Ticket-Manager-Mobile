@@ -19,7 +19,7 @@ namespace TicketManagerMobile.Views.Package
         {
             if (e.Parameter is List<TicketApi.Models.Package> packages)
             {
-                ViewModel.Packages = packages;
+                ViewModel.Packages.AddRange(packages);
             }
         }
     }

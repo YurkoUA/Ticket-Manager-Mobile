@@ -5,7 +5,7 @@ namespace TicketManagerMobile.ViewModels
 {
     public class PackagesListModel : BaseViewModel
     {
-        private List<Package> _packages;
+        private List<Package> _packages = new List<Package>();
         private Package _selectedPackage;
 
         public List<Package> Packages

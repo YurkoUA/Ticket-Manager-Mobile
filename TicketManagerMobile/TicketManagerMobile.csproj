@@ -106,7 +106,9 @@
     <Compile Include="ViewModels\Color\ColorDetailsViewModel.cs" />
     <Compile Include="ViewModels\Color\ColorsViewModel.cs" />
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
+    <Compile Include="ViewModels\Package\PackagesCategoryViewModel.cs" />
     <Compile Include="ViewModels\Package\PackagesListModel.cs" />
+    <Compile Include="ViewModels\Package\PackagesViewModel.cs" />
     <Compile Include="ViewModels\Serial\SerialDetailsViewModel.cs" />
     <Compile Include="ViewModels\Serial\SeriesViewModel.cs" />
     <Compile Include="Views\Account\SignInPage.xaml.cs">
@@ -126,6 +128,9 @@
     </Compile>
     <Compile Include="Views\Package\PackagesListPage.xaml.cs">
       <DependentUpon>PackagesListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Package\PackagesPage.xaml.cs">
+      <DependentUpon>PackagesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Serial\SerialDetailsPage.xaml.cs">
       <DependentUpon>SerialDetailsPage.xaml</DependentUpon>
@@ -177,6 +182,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Package\PackagesListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Package\PackagesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

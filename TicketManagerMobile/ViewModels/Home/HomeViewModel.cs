@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TicketApi.Interfaces;
 using TicketManagerMobile.Views.Color;
 using TicketManagerMobile.Views.Home;
+using TicketManagerMobile.Views.Package;
 using TicketManagerMobile.Views.Serial;
 
 namespace TicketManagerMobile.ViewModels.Home
@@ -26,7 +27,7 @@ namespace TicketManagerMobile.ViewModels.Home
             set
             {
                 _isMenuOpened = value;
-                OnPropertyChanged("IsMenuOpened");
+                OnPropertyChanged(nameof(IsMenuOpened));
             }
         }
 
@@ -44,12 +45,26 @@ namespace TicketManagerMobile.ViewModels.Home
         {
             _navigationService.NavigateTo(typeof(ColorsPage));
             CloseMenu();
+            ClearHistory();
         }
 
         public void OpenSeriesPage()
         {
             _navigationService.NavigateTo(typeof(SeriesPage));
             CloseMenu();
+            ClearHistory();
+        }
+
+        public void OpenPackagesPage()
+        {
+            _navigationService.NavigateTo(typeof(PackagesPage));
+            CloseMenu();
+            ClearHistory();
+        }
+
+        private void ClearHistory()
+        {
+            _navigationService.ClearHistory();
         }
     }
 }
