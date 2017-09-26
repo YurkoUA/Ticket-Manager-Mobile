@@ -101,6 +101,7 @@
     <Compile Include="Util\AutofacConfig.cs" />
     <Compile Include="ViewModels\Account\SignInViewModel.cs" />
     <Compile Include="ViewModels\Account\TryAuthorizeViewModel.cs" />
+    <Compile Include="ViewModels\AuthorizedViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\Color\ColorDetailsViewModel.cs" />
     <Compile Include="ViewModels\Color\ColorsViewModel.cs" />

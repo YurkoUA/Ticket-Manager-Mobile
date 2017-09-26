@@ -108,6 +108,7 @@
   <ItemGroup>
     <Compile Include="Attributes\SerialNumberAttribute.cs" />
     <Compile Include="Attributes\TicketNumberAttribute.cs" />
+    <Compile Include="Enums\PackageFilter.cs" />
     <Compile Include="Exceptions\BadRequestException.cs" />
     <Compile Include="Exceptions\HttpResponseException.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Interfaces\ICredentialService.cs" />
     <Compile Include="Interfaces\IHttpService.cs" />
     <Compile Include="Interfaces\INavigationService.cs" />
+    <Compile Include="Interfaces\IPackageService.cs" />
     <Compile Include="Interfaces\ISerialService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Models\AccessToken.cs" />
@@ -135,6 +137,7 @@
     <Compile Include="Services\CredentialService.cs" />
     <Compile Include="Services\HttpService.cs" />
     <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Services\PackageService.cs" />
     <Compile Include="Services\SerialService.cs" />
     <Compile Include="Services\UserService.cs" />
     <EmbeddedResource Include="Properties\TicketApi.rd.xml" />
