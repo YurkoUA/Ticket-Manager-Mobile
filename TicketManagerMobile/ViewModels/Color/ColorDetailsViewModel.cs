@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TicketApi.Exceptions;
 using TicketApi.Interfaces;
 using TicketApi.Models;
+using TicketManagerMobile.Views.Package;
 using TicketManagerMobile.Wrappers;
 
 namespace TicketManagerMobile.ViewModels
@@ -13,10 +11,12 @@ namespace TicketManagerMobile.ViewModels
     public class ColorDetailsViewModel : BaseViewModel
     {
         private IColorService _colorService;
+        private INavigationService _navigationService;
 
-        public ColorDetailsViewModel(IColorService colorService)
+        public ColorDetailsViewModel(IColorService colorService, INavigationService navigationService)
         {
             _colorService = colorService;
+            _navigationService = navigationService;
         }
 
         private Color _selectedColor;
@@ -73,6 +73,27 @@ namespace TicketManagerMobile.ViewModels
             finally
             {
                 IsLoading = false;
+            }
+        }
+
+        public async void OpenPackagesPage()
+        {
+            try
+            {
+                var packages = await _colorService.GetPackagesAsync(SelectedColor.Id);
+
+                if (packages.Any())
+                {
+                    _navigationService.NavigateTo(typeof(PackagesListPage), packages);
+                }
+            }
+            catch (HttpResponseException ex)
+            {
+                await MessageBox.ShowAsync($"Сталася помилка. Можливо, сервіс недоступний. Спробуйте ще раз.\n\nКод помилки: {ex.StatusCodeNumber}.", "Помилка ");
+            }
+            catch (Exception ex)
+            {
+                await MessageBox.ShowAsync($"Сталася помилка.\nСпробуйте пізніше.\n\n{ex.Message}", "Помилка");
             }
         }
     }

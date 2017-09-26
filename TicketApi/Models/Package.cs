@@ -23,6 +23,10 @@ namespace TicketApi.Models
         public bool IsSpecial { get; set; }
         public bool IsOpened { get; set; }
 
+        public string SpecialString => IsSpecial ? "Спеціальна" : "Звичайна";
+        public string OpenedString => IsOpened ? "Відкрита" : "Закрита";
+        public string StatusString => $"{OpenedString} / {SpecialString}";
+
         public string Note { get; set; }
         public DateTime Date { get; set; }
     }

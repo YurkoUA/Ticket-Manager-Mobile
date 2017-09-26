@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TicketApi.Exceptions;
 using TicketApi.Interfaces;
 using TicketApi.Models;
+using TicketManagerMobile.Views.Package;
 using TicketManagerMobile.Wrappers;
 
 namespace TicketManagerMobile.ViewModels
@@ -13,10 +11,12 @@ namespace TicketManagerMobile.ViewModels
     public class SerialDetailsViewModel : BaseViewModel
     {
         private ISerialService _serialService;
+        private INavigationService _navigationService;
 
-        public SerialDetailsViewModel(ISerialService serialService)
+        public SerialDetailsViewModel(ISerialService serialService, INavigationService navigationService)
         {
             _serialService = serialService;
+            _navigationService = navigationService;
         }
 
         private Serial _selectedSerial;
@@ -73,6 +73,27 @@ namespace TicketManagerMobile.ViewModels
             finally
             {
                 IsLoading = false;
+            }
+        }
+
+        public async void OpenPackagesPage()
+        {
+            try
+            {
+                var packages = await _serialService.GetPackagesAsync(SelectedSerial.Id);
+
+                if (packages.Any())
+                {
+                    _navigationService.NavigateTo(typeof(PackagesListPage), packages);
+                }
+            }
+            catch (HttpResponseException ex)
+            {
+                await MessageBox.ShowAsync($"Сталася помилка. Можливо, сервіс недоступний. Спробуйте ще раз.\n\nКод помилки: {ex.StatusCodeNumber}.", "Помилка ");
+            }
+            catch (Exception ex)
+            {
+                await MessageBox.ShowAsync($"Сталася помилка.\nСпробуйте пізніше.\n\n{ex.Message}", "Помилка");
             }
         }
     }

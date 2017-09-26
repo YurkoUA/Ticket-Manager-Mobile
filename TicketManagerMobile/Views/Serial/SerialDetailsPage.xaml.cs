@@ -13,7 +13,8 @@ namespace TicketManagerMobile.Views.Serial
         public SerialDetailsPage()
         {
             InitializeComponent();
-            ViewModel = new SerialDetailsViewModel(AutofacConfig.Resolve<ISerialService>());
+            ViewModel = new SerialDetailsViewModel(AutofacConfig.Resolve<ISerialService>(),
+                                                   AutofacConfig.Resolve<INavigationService>());
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

@@ -27,7 +27,7 @@ namespace TicketApi.Services
 
         public async Task<IEnumerable<Package>> GetPackagesAsync(int serialId)
         {
-            return await _httpService.Client.GetJsonAsync<IEnumerable<Package>>($"Color/GetPackages/{serialId}");
+            return await _httpService.Client.GetJsonAsync<IEnumerable<Package>>($"Serial/GetPackages/{serialId}");
         }
     }
 }

@@ -19,7 +19,7 @@
                     FontFamily="Segoe MDL2 Assets" FontSize="30"
                     Content="&#xE700;" 
                     Click="{x:Bind ViewModel.MenuOpenedChanged}"/>
-            
+
             <TextBlock RelativePanel.RightOf="HamburgerButton"
                        FontSize="28" FontWeight="Bold"
                        Margin="30,5,0,0" />

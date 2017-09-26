@@ -13,7 +13,8 @@ namespace TicketManagerMobile.Views.Color
         public ColorDetailsPage()
         {
             InitializeComponent();
-            ViewModel = new ColorDetailsViewModel(AutofacConfig.Resolve<IColorService>());
+            ViewModel = new ColorDetailsViewModel(AutofacConfig.Resolve<IColorService>(),
+                                                  AutofacConfig.Resolve<INavigationService>());
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
