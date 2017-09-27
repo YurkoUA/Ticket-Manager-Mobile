@@ -63,6 +63,10 @@ namespace TicketManagerMobile.Util
             builder.RegisterType<PackageService>()
                 .As<IPackageService>()
                 .SingleInstance();
+
+            builder.RegisterType<TicketService>()
+                .As<ITicketService>()
+                .SingleInstance();
         }
 
         public static T Resolve<T>()

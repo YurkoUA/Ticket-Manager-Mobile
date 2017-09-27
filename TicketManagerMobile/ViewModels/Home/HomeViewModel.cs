@@ -8,6 +8,7 @@ using TicketManagerMobile.Views.Color;
 using TicketManagerMobile.Views.Home;
 using TicketManagerMobile.Views.Package;
 using TicketManagerMobile.Views.Serial;
+using TicketManagerMobile.Views.Ticket;
 
 namespace TicketManagerMobile.ViewModels.Home
 {
@@ -58,6 +59,13 @@ namespace TicketManagerMobile.ViewModels.Home
         public void OpenPackagesPage()
         {
             _navigationService.NavigateTo(typeof(PackagesPage));
+            CloseMenu();
+            ClearHistory();
+        }
+
+        public void OpenTicketsPage()
+        {
+            _navigationService.NavigateTo(typeof(TicketsStartPage));
             CloseMenu();
             ClearHistory();
         }
