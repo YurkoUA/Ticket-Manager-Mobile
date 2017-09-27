@@ -1,10 +1,19 @@
 ﻿using System.Collections.Generic;
+using TicketApi.Interfaces;
 using TicketApi.Models;
+using TicketManagerMobile.Views.Package;
 
 namespace TicketManagerMobile.ViewModels
 {
     public class PackagesListModel : BaseViewModel
     {
+        public PackagesListModel(INavigationService navigationService)
+        {
+            _navigationService = navigationService;
+        }
+
+        private INavigationService _navigationService;
+
         private List<Package> _packages = new List<Package>();
         private Package _selectedPackage;
 
@@ -38,7 +47,7 @@ namespace TicketManagerMobile.ViewModels
         {
             if (SelectedPackage != null)
             {
-                // TODO: Open package's details.
+                _navigationService.NavigateTo(typeof(PackageDetailsPage), SelectedPackage.Id);
             }
         }
     }

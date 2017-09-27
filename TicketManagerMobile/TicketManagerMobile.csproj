@@ -95,6 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\DateTimeToLocalConverter.cs" />
     <Compile Include="Converters\InverseBoolConverter.cs" />
     <Compile Include="Converters\InverseBoolVisibilityConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,7 +107,9 @@
     <Compile Include="ViewModels\Color\ColorDetailsViewModel.cs" />
     <Compile Include="ViewModels\Color\ColorsViewModel.cs" />
     <Compile Include="ViewModels\Home\HomeViewModel.cs" />
+    <Compile Include="ViewModels\Package\PackageDetailsViewModel.cs" />
     <Compile Include="ViewModels\Package\PackagesCategoryViewModel.cs" />
+    <Compile Include="ViewModels\Package\PackageSearchViewModel.cs" />
     <Compile Include="ViewModels\Package\PackagesListModel.cs" />
     <Compile Include="ViewModels\Package\PackagesViewModel.cs" />
     <Compile Include="ViewModels\Serial\SerialDetailsViewModel.cs" />
@@ -126,11 +129,17 @@
     <Compile Include="Views\Home\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Package\PackageDetailsPage.xaml.cs">
+      <DependentUpon>PackageDetailsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Package\PackagesListPage.xaml.cs">
       <DependentUpon>PackagesListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Package\PackagesPage.xaml.cs">
       <DependentUpon>PackagesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Package\PackagesSearchPage.xaml.cs">
+      <DependentUpon>PackagesSearchPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Serial\SerialDetailsPage.xaml.cs">
       <DependentUpon>SerialDetailsPage.xaml</DependentUpon>
@@ -181,11 +190,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Package\PackageDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Package\PackagesListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Package\PackagesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Package\PackagesSearchPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

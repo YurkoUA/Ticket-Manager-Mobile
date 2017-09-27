@@ -21,8 +21,9 @@
                     <PivotItem Header="Всі">
                         <StackPanel>
                             <ListBox ItemsSource="{x:Bind ViewModel.AllPackages.Packages, Mode=OneWay}"
-                                 SelectedItem="{x:Bind ViewModel.AllPackages.SelectedPackage, Mode=TwoWay}"
-                                 AllowFocusOnInteraction="True">
+                                     SelectedItem="{x:Bind ViewModel.AllPackages.SelectedPackage, Mode=TwoWay}"
+                                     Tapped="{x:Bind ViewModel.AllPackages.OpenPackageDetails}"
+                                     AllowFocusOnInteraction="True">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate x:DataType="models:Package">
                                         <RelativePanel>
@@ -63,8 +64,9 @@
                     <PivotItem Header="Відкриті">
                         <StackPanel>
                             <ListBox ItemsSource="{x:Bind ViewModel.OpenedPackages.Packages, Mode=OneWay}"
-                                 SelectedItem="{x:Bind ViewModel.OpenedPackages.SelectedPackage, Mode=TwoWay}"
-                                 AllowFocusOnInteraction="True">
+                                     SelectedItem="{x:Bind ViewModel.OpenedPackages.SelectedPackage, Mode=TwoWay}"
+                                     Tapped="{x:Bind ViewModel.OpenedPackages.OpenPackageDetails}"
+                                     AllowFocusOnInteraction="True">
 
                                 <ListBox.ItemTemplate>
                                     <DataTemplate x:DataType="models:Package">
@@ -106,8 +108,9 @@
                     <PivotItem Header="Спеціальні">
                         <StackPanel>
                             <ListBox ItemsSource="{x:Bind ViewModel.SpecialPackages.Packages, Mode=OneWay}"
-                                 SelectedItem="{x:Bind ViewModel.SpecialPackages.SelectedPackage, Mode=TwoWay}"
-                                 AllowFocusOnInteraction="True">
+                                     SelectedItem="{x:Bind ViewModel.SpecialPackages.SelectedPackage, Mode=TwoWay}"
+                                     Tapped="{x:Bind ViewModel.SpecialPackages.OpenPackageDetails}"
+                                     AllowFocusOnInteraction="True">
 
                                 <ListBox.ItemTemplate>
                                     <DataTemplate x:DataType="models:Package">
@@ -157,7 +160,8 @@
             <AppBarButton Label="Створити спеціальну пачку" Icon="Add"
                           Visibility="{x:Bind ViewModel.IsAdmin}"/>
 
-            <AppBarButton Label="Пошук" Icon="Find"/>
+            <AppBarButton Label="Пошук" Icon="Find"
+                          Click="{x:Bind ViewModel.OpenSearchPage}"/>
             <AppBarButton Label="Оновити" Icon="Refresh"
                           Click="{x:Bind ViewModel.Refresh}"/>
         </CommandBar>

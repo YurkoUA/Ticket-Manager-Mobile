@@ -17,7 +17,11 @@ namespace TicketManagerMobile.Converters
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            return Convert(value, targetType, parameter, language);
+            if (value is Visibility visibility)
+            {
+                return visibility == Visibility.Collapsed;
+            }
+            throw new ArgumentException();
         }
     }
 }

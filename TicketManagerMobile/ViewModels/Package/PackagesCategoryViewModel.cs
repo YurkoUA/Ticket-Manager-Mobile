@@ -1,22 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using TicketApi.Enums;
 using TicketApi.Exceptions;
 using TicketApi.Extensions;
 using TicketApi.Interfaces;
 using TicketApi.Models;
+using TicketManagerMobile.Views.Package;
 using TicketManagerMobile.Wrappers;
 
 namespace TicketManagerMobile.ViewModels
 {
     public class PackagesCategoryViewModel : BaseViewModel
     {
-        public PackagesCategoryViewModel(IPackageService packageService, PackagesFilter filter)
+        public PackagesCategoryViewModel(IPackageService packageService, INavigationService navigationService, PackagesFilter filter)
         {
+            _navigationService = navigationService;
             _packageService = packageService;
             _filter = filter;
             
@@ -25,6 +22,7 @@ namespace TicketManagerMobile.ViewModels
 
         private const int ITEMS_PER_PAGE = 20;
 
+        private INavigationService _navigationService;
         private IPackageService _packageService;
         private PackagesFilter _filter;
         private int _page = 1;
@@ -102,7 +100,7 @@ namespace TicketManagerMobile.ViewModels
         {
             if (SelectedPackage != null)
             {
-                // TODO: Open package's details.
+                _navigationService.NavigateTo(typeof(PackageDetailsPage), SelectedPackage.Id);
             }
         }
     }

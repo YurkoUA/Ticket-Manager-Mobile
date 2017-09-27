@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TicketApi.Enums;
+﻿using TicketApi.Enums;
 using TicketApi.Interfaces;
-using TicketManagerMobile.Util;
+using TicketManagerMobile.Views.Package;
 
 namespace TicketManagerMobile.ViewModels
 {
@@ -21,9 +16,9 @@ namespace TicketManagerMobile.ViewModels
             _navigaionService = navigationService;
             _packageService = packageService;
 
-            AllPackages = new PackagesCategoryViewModel(_packageService, PackagesFilter.All);
-            OpenedPackages = new PackagesCategoryViewModel(_packageService, PackagesFilter.Opened);
-            SpecialPackages = new PackagesCategoryViewModel(_packageService, PackagesFilter.Special);
+            AllPackages = new PackagesCategoryViewModel(_packageService, _navigaionService, PackagesFilter.All);
+            OpenedPackages = new PackagesCategoryViewModel(_packageService, _navigaionService, PackagesFilter.Opened);
+            SpecialPackages = new PackagesCategoryViewModel(_packageService, _navigaionService, PackagesFilter.Special);
 
             SetTotalCountAsync();
         }
@@ -52,6 +47,11 @@ namespace TicketManagerMobile.ViewModels
             AllPackages.Refresh();
             OpenedPackages.Refresh();
             SpecialPackages.Refresh();
+        }
+
+        public void OpenSearchPage()
+        {
+            _navigaionService.NavigateTo(typeof(PackagesSearchPage));
         }
 
         private async void SetTotalCountAsync()

@@ -2,6 +2,8 @@
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using TicketManagerMobile.ViewModels;
+using TicketManagerMobile.Util;
+using TicketApi.Interfaces;
 
 namespace TicketManagerMobile.Views.Package
 {
@@ -12,7 +14,7 @@ namespace TicketManagerMobile.Views.Package
         public PackagesListPage()
         {
             InitializeComponent();
-            ViewModel = new PackagesListModel();
+            ViewModel = new PackagesListModel(AutofacConfig.Resolve<INavigationService>());
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

@@ -23,11 +23,16 @@ namespace TicketApi.Models
         public bool IsSpecial { get; set; }
         public bool IsOpened { get; set; }
 
+        public string Note { get; set; }
+        public DateTime Date { get; set; }
+
         public string SpecialString => IsSpecial ? "Спеціальна" : "Звичайна";
         public string OpenedString => IsOpened ? "Відкрита" : "Закрита";
         public string StatusString => $"{OpenedString} / {SpecialString}";
 
-        public string Note { get; set; }
-        public DateTime Date { get; set; }
+        public bool IsNoteNotNull => !string.IsNullOrEmpty(Note);
+        public bool IsFirstNumberNotNull => FirstNumber != null;
+        public bool IsColorNotNull => Color != null;
+        public bool IsSerialNotNull => Serial != null;
     }
 }

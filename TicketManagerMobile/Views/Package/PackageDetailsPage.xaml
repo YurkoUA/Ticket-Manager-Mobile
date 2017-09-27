@@ -1,0 +1,79 @@
+﻿<Page
+    x:Class="TicketManagerMobile.Views.Package.PackageDetailsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TicketManagerMobile.Views.Package"
+    xmlns:converters="using:TicketManagerMobile.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
+            <converters:InverseBoolVisibilityConverter x:Key="InverseBoolVisibilityConverter"/>
+            <converters:DateTimeToLocalConverter x:Key="DateTimeToLocalConverter"/>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Visibility="{x:Bind ViewModel.IsLoading, Mode=OneWay}"
+                    VerticalAlignment="Center" HorizontalAlignment="Center">
+            <ProgressRing IsActive="True" 
+                          Width="100" Height="100"/>
+            <TextBlock Text="Завантаження..." Margin="0,10,0,0"
+                       FontWeight="Bold"/>
+        </StackPanel>
+
+        <ScrollViewer>
+            <StackPanel Visibility="{x:Bind ViewModel.IsLoading, Mode=OneWay, Converter={StaticResource InverseBoolVisibilityConverter}}">
+                <TextBlock Text="{x:Bind ViewModel.PageTitle, Mode=OneWay}" 
+                           FontWeight="Bold" FontSize="20"
+                           HorizontalAlignment="Center"/>
+
+                <TextBlock Text="ID:" FontWeight="Bold" Margin="0,10,0,0"/>
+                <TextBlock Text="{x:Bind ViewModel.SelectedPackage.Id, Mode=OneWay}"/>
+
+                <TextBlock Text="Назва:" FontWeight="Bold" Margin="0,10,0,0"/>
+                <TextBlock Text="{x:Bind ViewModel.SelectedPackage.Name, Mode=OneWay}"/>
+
+                <TextBlock Text="Колір:" FontWeight="Bold" Margin="0,10,0,0"
+                           Visibility="{x:Bind ViewModel.SelectedPackage.IsColorNotNull, Mode=OneWay}"/>
+                <TextBlock Text="{x:Bind ViewModel.SelectedPackage.Color.Name, Mode=OneWay}"
+                           Visibility="{x:Bind ViewModel.SelectedPackage.IsColorNotNull, Mode=OneWay}"/>
+
+                <TextBlock Text="Серія:" FontWeight="Bold" Margin="0,10,0,0"
+                           Visibility="{x:Bind ViewModel.SelectedPackage.IsSerialNotNull, Mode=OneWay}"/>
+                <TextBlock Text="{x:Bind ViewModel.SelectedPackage.Serial.Name, Mode=OneWay}"
+                           Visibility="{x:Bind ViewModel.SelectedPackage.IsSerialNotNull, Mode=OneWay}"/>
+
+                <TextBlock Text="Перша цифра:" FontWeight="Bold" Margin="0,10,0,0"
+                           Visibility="{x:Bind ViewModel.SelectedPackage.IsFirstNumberNotNull, Mode=OneWay}"/>
+                <TextBlock Text="{x:Bind ViewModel.SelectedPackage.FirstNumber, Mode=OneWay}"
+                           Visibility="{x:Bind ViewModel.SelectedPackage.IsFirstNumberNotNull, Mode=OneWay}"/>
+
+                <TextBlock Text="Номінал:" FontWeight="Bold" Margin="0,10,0,0"/>
+                <TextBlock Text="{x:Bind ViewModel.SelectedPackage.Nominal, Mode=OneWay}"/>
+
+                <TextBlock Text="Статус:" FontWeight="Bold" Margin="0,10,0,0"/>
+                <TextBlock Text="{x:Bind ViewModel.SelectedPackage.StatusString, Mode=OneWay}"/>
+
+                <TextBlock Text="Примітка:" FontWeight="Bold" Margin="0,10,0,0"
+                           Visibility="{x:Bind ViewModel.SelectedPackage.IsNoteNotNull, Mode=OneWay}"/>
+                <TextBlock Text="{x:Bind ViewModel.SelectedPackage.Note, Mode=OneWay}"
+                           Visibility="{x:Bind ViewModel.SelectedPackage.IsNoteNotNull, Mode=OneWay}"/>
+
+                <TextBlock Text="Створена:" FontWeight="Bold" Margin="0,10,0,0"/>
+                <TextBlock Text="{x:Bind ViewModel.SelectedPackage.Date, Mode=OneWay, Converter={StaticResource DateTimeToLocalConverter}, ConverterParameter='D'}"/>
+
+                <TextBlock Text="Квитків:" FontWeight="Bold" Margin="0,10,0,0"/>
+                <TextBlock Text="{x:Bind ViewModel.SelectedPackage.TicketsCount, Mode=OneWay}"/>
+
+                <Button Content="Список квитків" Margin="0,10,0,10"
+                        HorizontalAlignment="Stretch"
+                        Visibility="{x:Bind ViewModel.IsTicketsButtonVisibled, Mode=OneWay}"
+                        Click="{x:Bind ViewModel.OpenTicketsPage}"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

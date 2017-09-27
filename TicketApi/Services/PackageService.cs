@@ -38,12 +38,12 @@ namespace TicketApi.Services
 
         public async Task<IEnumerable<Ticket>> GetTicketsAsync(int packageId)
         {
-            return await _httpService.Client.GetJsonAsync<IEnumerable<Ticket>>($"/Package/GetTickets/{packageId}");
+            return await _httpService.Client.GetJsonAsync<IEnumerable<Ticket>>($"Package/GetTickets/{packageId}");
         }
 
         public async Task<IEnumerable<Ticket>> GetUnallocatedTicketsAsync(int packageId)
         {
-            return await _httpService.Client.GetJsonAsync<IEnumerable<Ticket>>($"/Package/GetUnallocatedTickets/{packageId}");
+            return await _httpService.Client.GetJsonAsync<IEnumerable<Ticket>>($"Package/GetUnallocatedTickets/{packageId}");
         }
     }
 }

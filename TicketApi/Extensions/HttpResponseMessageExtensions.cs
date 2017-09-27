@@ -8,6 +8,9 @@ namespace TicketApi.Extensions
     {
         public static void ThrowHttpResponseExceptions(this HttpResponseMessage response)
         {
+            if (response.StatusCode == HttpStatusCode.NoContent)
+                throw new NoContentException(response);
+
             if (!response.IsSuccessStatusCode)
             {
                 switch (response.StatusCode)
