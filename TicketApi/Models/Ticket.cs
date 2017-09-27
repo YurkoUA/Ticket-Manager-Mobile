@@ -30,6 +30,7 @@ namespace TicketApi.Models
         public bool IsHappy { get; set; }
 
         public bool IsNoteNotNull => !string.IsNullOrEmpty(Note);
+        public bool IsDateNotNull => !string.IsNullOrEmpty(Date);
         public bool IsPackageNotNull => Package != null;
 
         public string SerialFull => $"{Serial?.Name}{SerialNumber}";

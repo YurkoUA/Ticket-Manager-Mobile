@@ -120,6 +120,8 @@
     <Compile Include="ViewModels\Package\PackagesViewModel.cs" />
     <Compile Include="ViewModels\Serial\SerialDetailsViewModel.cs" />
     <Compile Include="ViewModels\Serial\SeriesViewModel.cs" />
+    <Compile Include="ViewModels\Ticket\TicketDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Ticket\TicketSearchViewModel.cs" />
     <Compile Include="ViewModels\Ticket\TicketStartViewModel.cs" />
     <Compile Include="Views\Account\SignInPage.xaml.cs">
       <DependentUpon>SignInPage.xaml</DependentUpon>
@@ -153,6 +155,12 @@
     </Compile>
     <Compile Include="Views\Serial\SeriesPage.xaml.cs">
       <DependentUpon>SeriesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ticket\TicketDetailsPage.xaml.cs">
+      <DependentUpon>TicketDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Ticket\TicketSearchPage.xaml.cs">
+      <DependentUpon>TicketSearchPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Ticket\TicketsStartPage.xaml.cs">
       <DependentUpon>TicketsStartPage.xaml</DependentUpon>
@@ -229,6 +237,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Serial\SeriesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Ticket\TicketDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Ticket\TicketSearchPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

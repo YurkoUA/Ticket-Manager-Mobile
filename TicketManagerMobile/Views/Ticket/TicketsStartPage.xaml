@@ -52,7 +52,7 @@
                         </StackPanel>
                     </ListBoxItem>
 
-                    <ListBoxItem>
+                    <ListBoxItem Tapped="{x:Bind ViewModel.OpenSearchPage}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontSize="30" FontFamily="Segoe MDL2 Assets" Text="&#xE11A;" />
                             <TextBlock FontSize="20" Text="Пошук" Margin="10,0,0,0" />

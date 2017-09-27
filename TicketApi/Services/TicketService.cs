@@ -47,7 +47,7 @@ namespace TicketApi.Services
 
         public async Task<IEnumerable<Ticket>> SearchAsync(string number)
         {
-            return await _httpService.Client.GetJsonAsync<IEnumerable<Ticket>>($"Ticket/Search?number={number}&partialMatches=True");
+            return await _httpService.Client.GetJsonAsync<IEnumerable<Ticket>>($"Ticket/Search/{number}?partialMatches=True");
         }
 
         public async Task<IEnumerable<Ticket>> ClonesWithAsync(int ticketId)
