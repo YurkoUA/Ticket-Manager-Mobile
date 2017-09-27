@@ -28,5 +28,11 @@ namespace TicketApi.Models
         public DateTime AddDate { get; set; }
 
         public bool IsHappy { get; set; }
+
+        public bool IsNoteNotNull => !string.IsNullOrEmpty(Note);
+        public bool IsPackageNotNull => Package != null;
+
+        public string SerialFull => $"{Serial?.Name}{SerialNumber}";
+        public string ColorAndSerial => $"{Color?.Name}, {SerialFull}";
     }
 }

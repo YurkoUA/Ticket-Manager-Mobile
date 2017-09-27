@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:TicketManagerMobile.Views.Package"
     xmlns:models="using:TicketApi.Models"
+    xmlns:templates="using:TicketManagerMobile.Templates"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -24,28 +25,7 @@
 
                     <ListBox.ItemTemplate>
                         <DataTemplate x:DataType="models:Package">
-                            <RelativePanel>
-                                <TextBlock x:Name="packageName"
-                                           Text="{x:Bind Name}"
-                                           FontWeight="Bold"/>
-
-                                <TextBlock x:Name="status"
-                                           Text="{x:Bind StatusString}"
-                                           FontSize="13"
-                                           RelativePanel.Below="packageName"/>
-
-                                <TextBlock x:Name="ticketsText"
-                                           Text="Квитків:"
-                                           Margin="0,0,5,0"
-                                           FontSize="13"
-                                           RelativePanel.Below="status"/>
-
-                                <TextBlock x:Name="ticketsCount"
-                                           Text="{x:Bind TicketsCount}"
-                                           FontSize="13"
-                                           RelativePanel.Below="status"
-                                           RelativePanel.RightOf="ticketsText"/>
-                            </RelativePanel>
+                            <templates:PackageTemplate/>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
